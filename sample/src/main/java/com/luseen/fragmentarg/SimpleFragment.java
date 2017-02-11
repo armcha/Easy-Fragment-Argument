@@ -31,7 +31,7 @@ public class SimpleFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        ArgFragment.receiveArguments(this);
+        ArgFragment.onAttach(this);
     }
 
     @Override

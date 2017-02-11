@@ -17,10 +17,14 @@ public class SecondFragment extends ArgumentFragment {
     @Argument
     private String secondString;
 
+    @Argument
+    private boolean testBoolean;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.e("secondString ", "SecondFragment||| " + secondString);
+        Log.e("testBoolean ", "SecondFragment||| " + testBoolean);
         return inflater.inflate(R.layout.fragment_second, container, false);
     }
 }
