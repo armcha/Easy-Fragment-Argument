@@ -1,1 +1,1 @@
-include ':app', ':easy-fragment-argument'
+include ':sample', ':easy-fragment-argument'

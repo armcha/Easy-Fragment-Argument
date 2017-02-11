@@ -1,4 +1,4 @@
-package com.luseen.fragmentarg;
+package com.luseen.easy_fragment_argument;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,11 +1,11 @@
-package com.luseen.fragmentarg;
+package com.luseen.easy_fragment_argument;
 
 
 import android.content.Context;
 import android.support.annotation.CallSuper;
 import android.support.v4.app.Fragment;
 
-public abstract class BlankFragment extends Fragment {
+public abstract class ArgumentFragment extends Fragment {
 
     @CallSuper
     @Override

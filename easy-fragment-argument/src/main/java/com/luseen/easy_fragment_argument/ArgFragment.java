@@ -1,9 +1,8 @@
-package com.luseen.fragmentarg;
+package com.luseen.easy_fragment_argument;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 
 import java.lang.reflect.Field;
 
@@ -57,4 +56,6 @@ public class ArgFragment {
             }
         }
     }
+
+
 }

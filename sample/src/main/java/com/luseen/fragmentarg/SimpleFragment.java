@@ -1,6 +1,7 @@
 package com.luseen.fragmentarg;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.luseen.easy_fragment_argument.ArgFragment;
+import com.luseen.easy_fragment_argument.Argument;
 
-public class SimpleFragment extends BlankFragment {
+
+public class SimpleFragment extends Fragment {
 
     @Argument
     private String name;
@@ -23,6 +27,12 @@ public class SimpleFragment extends BlankFragment {
 
     @Argument
     private int index;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        ArgFragment.receiveArguments(this);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
