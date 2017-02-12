@@ -8,19 +8,13 @@ import com.luseen.easy_fragment_argument.Argument;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Argument(SimpleFragment.class)
-    private String name = "Arman";
-    @Argument(SimpleFragment.class)
-    private String testName;
-    @Argument(SecondFragment.class)
-    private String secondString = "SecondFragment test";
-    @Argument(SimpleFragment.class)
-    private String secondName = "Chatikyan";
+    private String secondName = "Arman";
+
     @Argument(SimpleFragment.class)
     private int index;
 
-    @Argument(SecondFragment.class)
-    private boolean testBoolean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +22,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         index = 77;
-        testName = "TestName";
-        testBoolean = true;
 
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.container, ArgFragment.createFragment(this, new SimpleFragment()))
                 .commit();
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.container, ArgFragment.createFragment(this, new SecondFragment()))
-                .commit();
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .add(R.id.container, ArgFragment.createFragment(this, new SecondFragment()))
+//                .commit();
     }
 }

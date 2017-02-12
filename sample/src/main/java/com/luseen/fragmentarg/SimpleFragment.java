@@ -20,12 +20,6 @@ public class SimpleFragment extends Fragment {
     private String name;
 
     @Argument
-    private String testName;
-
-    @Argument
-    private String secondName;
-
-    @Argument
     private int index;
 
     @Override
@@ -44,8 +38,6 @@ public class SimpleFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.e("NAME ", "" + name);
-        Log.e("testName ", "" + testName);
-        Log.e("secondName ", "" + secondName);
         Log.e("INDEX ", "" + index);
     }
 }

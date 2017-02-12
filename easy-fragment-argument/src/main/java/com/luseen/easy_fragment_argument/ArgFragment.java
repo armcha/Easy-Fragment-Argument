@@ -21,16 +21,16 @@ public class ArgFragment {
         for (Field field : activity.getClass().getDeclaredFields()) {
             Argument argument = field.getAnnotation(Argument.class);
             if (field.isAnnotationPresent(Argument.class) &&
-                    argument.value().getSimpleName().equals(fragment.getClass().getSimpleName())) {
+                    argument.value().getName().equals(fragment.getClass().getName())) {
                 setAccessIfNeeded(field);
                 try {
                     Object object = field.get(activity);
                     if (object instanceof String) {
-                        arguments.putString(field.getName(), (String) field.get(activity));
+                        arguments.putString(field.getName(), (String) object);
                     } else if (object instanceof Integer) {
-                        arguments.putInt(field.getName(), (Integer) field.get(activity));
+                        arguments.putInt(field.getName(), (Integer) object);
                     } else if (object instanceof Boolean) {
-                        arguments.putBoolean(field.getName(), (Boolean) field.get(activity));
+                        arguments.putBoolean(field.getName(), (Boolean) object);
                     }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
@@ -42,17 +42,18 @@ public class ArgFragment {
     }
 
     private static void receiveArguments(Fragment fragment) {
+        Bundle bundle = fragment.getArguments();
         for (Field field : fragment.getClass().getDeclaredFields()) {
-            for (String key : fragment.getArguments().keySet()) {
+            for (String key : bundle.keySet()) {
                 try {
                     if (field.getName().equals(key) && field.isAnnotationPresent(Argument.class)) {
                         setAccessIfNeeded(field);
-                        if (field.getType().isAssignableFrom(String.class)) {
-                            field.set(fragment, fragment.getArguments().getString(field.getName()));
-                        } else if (Utils.isInteger(field)) {
-                            field.set(fragment, fragment.getArguments().getInt(field.getName()));
-                        } else if (Utils.isBoolean(field)) {
-                            field.set(fragment, fragment.getArguments().getBoolean(field.getName()));
+                        if (isString(field)) {
+                            field.set(fragment, bundle.getString(field.getName()));
+                        } else if (isInteger(field)) {
+                            field.set(fragment, bundle.getInt(field.getName()));
+                        } else if (isBoolean(field)) {
+                            field.set(fragment, bundle.getBoolean(field.getName()));
                         }
                     }
                 } catch (IllegalAccessException e) {
@@ -65,5 +66,19 @@ public class ArgFragment {
     private static void setAccessIfNeeded(Field field) {
         if (!field.isAccessible())
             field.setAccessible(true);
+    }
+
+    private static boolean isInteger(Field field) {
+        return field.getType().isAssignableFrom(int.class)
+                || field.getType().isAssignableFrom(Integer.class);
+    }
+
+    private static boolean isBoolean(Field field) {
+        return field.getType().isAssignableFrom(boolean.class)
+                || field.getType().isAssignableFrom(Boolean.class);
+    }
+
+    private static boolean isString(Field field) {
+        return field.getType().isAssignableFrom(String.class);
     }
 }

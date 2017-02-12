@@ -20,4 +20,8 @@ class Utils {
         return field.getType().isAssignableFrom(boolean.class)
                 || field.getType().isAssignableFrom(Boolean.class);
     }
+
+    static boolean isString(Field field) {
+        return field.getType().isAssignableFrom(String.class);
+    }
 }
