@@ -10,10 +10,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Argument(SimpleFragment.class)
-    private String secondName = "Arman";
+    private String name = "Arman";
 
     @Argument(SimpleFragment.class)
     private int index;
+
+    @Argument(SimpleFragment.class)
+    private Phone nexusPhone;
 
 
     @Override
@@ -22,15 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         index = 77;
+        nexusPhone = new Phone("Nexus 6", 7.1f, false);
 
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.container, ArgFragment.createFragment(this, new SimpleFragment()))
                 .commit();
-
-//        getSupportFragmentManager()
-//                .beginTransaction()
-//                .add(R.id.container, ArgFragment.createFragment(this, new SecondFragment()))
-//                .commit();
     }
 }

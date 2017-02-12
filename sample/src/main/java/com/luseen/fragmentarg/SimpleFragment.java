@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import com.luseen.easy_fragment_argument.ArgFragment;
 import com.luseen.easy_fragment_argument.Argument;
 
-
 public class SimpleFragment extends Fragment {
 
     @Argument
@@ -21,6 +20,9 @@ public class SimpleFragment extends Fragment {
 
     @Argument
     private int index;
+
+    @Argument
+    private Phone nexusPhone;
 
     @Override
     public void onAttach(Context context) {
@@ -39,5 +41,7 @@ public class SimpleFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.e("NAME ", "" + name);
         Log.e("INDEX ", "" + index);
+        Log.e("nexusPhone", "getModel " + nexusPhone.getModel());
+        Log.e("nexusPhone", "getAndroidVersion " + nexusPhone.getAndroidVersion());
     }
 }

@@ -2,6 +2,7 @@ package com.luseen.easy_fragment_argument;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 
 import java.lang.reflect.Field;
@@ -31,7 +32,13 @@ public class ArgFragment {
                         arguments.putInt(field.getName(), (Integer) object);
                     } else if (object instanceof Boolean) {
                         arguments.putBoolean(field.getName(), (Boolean) object);
+                    } else if (object instanceof Parcelable) {
+                        arguments.putParcelable(field.getName(), (Parcelable) object);
                     }
+                    // TODO: 12.02.2017 Serializable
+                    //else if (object instanceof Serializable) {
+//                        arguments.putSerializable(field.getName(), (Serializable) object);
+//                    }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -54,6 +61,8 @@ public class ArgFragment {
                             field.set(fragment, bundle.getInt(field.getName()));
                         } else if (isBoolean(field)) {
                             field.set(fragment, bundle.getBoolean(field.getName()));
+                        } else if (isParcelableObject(field)) {
+                            field.set(fragment, bundle.getParcelable(field.getName()));
                         }
                     }
                 } catch (IllegalAccessException e) {
@@ -81,4 +90,25 @@ public class ArgFragment {
     private static boolean isString(Field field) {
         return field.getType().isAssignableFrom(String.class);
     }
+
+    private static boolean isParcelableObject(Field field) {
+        for (Class<?> clazz : field.getType().getInterfaces()) {
+            if (clazz.isAssignableFrom(Parcelable.class)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // TODO: 12.02.2017  add support for serializable Object
+//    private static boolean isSerializableObject(Field field) {
+//        for (Class<?> clazz : field.getType().getInterfaces()) {
+//            Log.e("isSerializableObject ", field.getName() + " || " + clazz);
+//            if (clazz.isAssignableFrom(Serializable.class) && clazz.isAssignableFrom(Object.class)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+
 }
