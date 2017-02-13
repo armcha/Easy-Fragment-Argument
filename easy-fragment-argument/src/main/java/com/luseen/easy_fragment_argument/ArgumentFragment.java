@@ -11,6 +11,6 @@ public abstract class ArgumentFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        ArgFragment.onAttach(this);
+        ArgumentFactory.onAttach(this);
     }
 }
