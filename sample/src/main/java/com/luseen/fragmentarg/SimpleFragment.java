@@ -13,26 +13,19 @@ import com.luseen.easy_fragment_argument.ArgumentFragment;
 
 public class SimpleFragment extends ArgumentFragment {
 
+    private static final String TAG = "SimpleFragment";
+
     @Argument
     private String name;
 
     @Argument
-    private int index;
-
-    @Argument
-    private Phone nexusPhone;
-
-    @Argument
-    private User testUser;
+    private Boolean secondBoolean;
 
     @Argument
     private Integer testInteger;
 
     @Argument
-    private boolean testBoolean;
-
-    @Argument
-    private Boolean secondBoolean;
+    private User testUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,13 +36,9 @@ public class SimpleFragment extends ArgumentFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.e("NAME ", "" + name);
-        Log.e("INDEX ", "" + index);
-        Log.e("nexusPhone", "getModel " + nexusPhone.getModel());
-        Log.e("nexusPhone", "getAndroidVersion " + nexusPhone.getAndroidVersion());
-        Log.e("USER", "testUser " + testUser.getUserName());
-        Log.e("testInteger", "testInteger " + testInteger);
-        Log.e("testBoolean", "testBoolean " + testBoolean);
-        Log.e("secondBoolean", "secondBoolean " + secondBoolean);
+        Log.d(TAG,"String " + name);
+        Log.d(TAG,"Boolean " + secondBoolean);
+        Log.d(TAG,"Integer " + testInteger);
+        Log.d(TAG,"User " + testUser.getUserName());
     }
 }

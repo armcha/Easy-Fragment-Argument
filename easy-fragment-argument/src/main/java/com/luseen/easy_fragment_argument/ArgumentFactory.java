@@ -15,7 +15,7 @@ import java.lang.reflect.Field;
 
 public class ArgumentFactory {
 
-    private static final String ERROR_MESSAGE = "TYPE IS UNDEFINED";
+    private static final String ERROR_MESSAGE = "SOMETHING WENT WRONG ";
     private static final String TAG = "ArgumentFactory";
 
     public static void onAttach(Fragment fragment) {
@@ -57,11 +57,11 @@ public class ArgumentFactory {
                     arguments.putSerializable(field.getName(), (Serializable) object);
                     break;
                 case UNDEFINED:
-                    Log.e(TAG, ERROR_MESSAGE);
+                    logeErrorMessage();
                     break;
             }
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            logeErrorMessage(e);
         }
     }
 
@@ -91,7 +91,7 @@ public class ArgumentFactory {
                 }
             }
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            logeErrorMessage(e);
         }
     }
 
@@ -116,7 +116,7 @@ public class ArgumentFactory {
 
     private static boolean isParcelableObject(Field field) {
         for (Class<?> clazz : field.getType().getInterfaces()) {
-            if (clazz.isAssignableFrom(Parcelable.class)) {
+            if (!clazz.isPrimitive() && clazz.isAssignableFrom(Parcelable.class)) {
                 return true;
             }
         }
@@ -137,5 +137,13 @@ public class ArgumentFactory {
             }
         }
         return false;
+    }
+
+    private static void logeErrorMessage(Throwable throwable) {
+        Log.e(TAG, ERROR_MESSAGE, throwable);
+    }
+
+    private static void logeErrorMessage() {
+        logeErrorMessage(null);
     }
 }

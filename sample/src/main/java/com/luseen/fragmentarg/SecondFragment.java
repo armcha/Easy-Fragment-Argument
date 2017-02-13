@@ -14,17 +14,23 @@ import com.luseen.easy_fragment_argument.ArgumentFragment;
 
 public class SecondFragment extends ArgumentFragment {
 
-    @Argument
-    private String secondString;
+    private static final String TAG = "SecondFragment";
 
     @Argument
     private boolean testBoolean;
 
+    @Argument
+    private Phone nexusPhone;
+
+    @Argument
+    private int index;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.e("secondString ", "SecondFragment||| " + secondString);
-        Log.e("testBoolean ", "SecondFragment||| " + testBoolean);
+        Log.d(TAG,"boolean " + testBoolean);
+        Log.d(TAG,"Phone " + nexusPhone.getModel());
+        Log.d(TAG,"int " + index);
         return inflater.inflate(R.layout.fragment_second, container, false);
     }
 }

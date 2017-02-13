@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Created by Chatikyan on 13.02.2017.
  */
 
-public enum Type {
+enum Type {
 
     STRING,
     BOOLEAN,
