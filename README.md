@@ -1,6 +1,6 @@
 # Easy-Fragment-Argument
 
-This library will help you to pass and receive fragment arguments in easiest way<br />
+This library will help you to pass and receive fragment arguments in easier way<br /><br />
 ![](screens/screen1.png)<br />
 
 ## Features
@@ -39,13 +39,20 @@ compile 'com.github.armcha:Easy-Fragment-Argument:0.0.1'
 
 **Step 2**
 Create fragment
-```java
-Fragment fragment = ArgumentFactory.createFragment(this, new FirstFragment());
+```java 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        testUser = new User("Google", 123456789, 23);
 
+        Fragment fragment = ArgumentFactory.createFragment(this, new FirstFragment());
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.container, fragment)
                 .commit();
+    }
 ```
 
 **Step 3**
