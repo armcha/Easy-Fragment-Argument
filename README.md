@@ -23,7 +23,7 @@ compile 'com.github.armcha:Easy-Fragment-Argument:0.0.1'
 
 #Usage
 -----------------------
-**Step 1**
+**Step 1.**
  Use
  ```java
  @Argument
@@ -37,7 +37,7 @@ compile 'com.github.armcha:Easy-Fragment-Argument:0.0.1'
  private User testUser;
  ```
 
-**Step 2**
+**Step 2.**
 Create fragment
 ```java 
     @Override
@@ -55,7 +55,7 @@ Create fragment
     }
 ```
 
-**Step 3**
+**Step 3.**
 Extend your fragment from
 ```java
 ArgumentFragment
@@ -76,7 +76,7 @@ public void onAttach(Context context) {
 }
 ```
 
-**Step 4**
+**Step 4.**
 Declare variable in fragment with
  ```java
  @Argument
