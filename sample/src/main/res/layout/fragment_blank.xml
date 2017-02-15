@@ -1,13 +1,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.luseen.fragmentarg.BlankFragment">
+    android:layout_height="match_parent">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/colorAccent" />
 
 </FrameLayout>

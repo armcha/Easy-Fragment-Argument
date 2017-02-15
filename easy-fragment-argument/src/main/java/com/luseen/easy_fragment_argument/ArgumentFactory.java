@@ -57,11 +57,11 @@ public class ArgumentFactory {
                     arguments.putSerializable(field.getName(), (Serializable) object);
                     break;
                 case UNDEFINED:
-                    logeErrorMessage();
+                    logError();
                     break;
             }
         } catch (IllegalAccessException e) {
-            logeErrorMessage(e);
+            logError(e);
         }
     }
 
@@ -91,7 +91,7 @@ public class ArgumentFactory {
                 }
             }
         } catch (IllegalAccessException e) {
-            logeErrorMessage(e);
+            logError(e);
         }
     }
 
@@ -139,11 +139,11 @@ public class ArgumentFactory {
         return false;
     }
 
-    private static void logeErrorMessage(Throwable throwable) {
+    private static void logError(Throwable throwable) {
         Log.e(TAG, ERROR_MESSAGE, throwable);
     }
 
-    private static void logeErrorMessage() {
-        logeErrorMessage(null);
+    private static void logError() {
+        logError(null);
     }
 }

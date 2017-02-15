@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
@@ -21,4 +22,13 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.1'
+}
+
+publish {
+    groupId = 'com.github.armcha'
+    artifactId = 'Easy-Fragment-Argument'
+    publishVersion = '0.0.1'
+    desc = 'Easy-Fragment-Argument'
+    licences = ['MIT']
+    website = 'https://github.com/armcha/Easy-Fragment-Argument'
 }

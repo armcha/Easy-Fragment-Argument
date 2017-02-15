@@ -7,11 +7,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.luseen.easy_fragment_argument.Argument;
 import com.luseen.easy_fragment_argument.ArgumentFragment;
 
-public class SimpleFragment extends ArgumentFragment {
+public class FirstFragment extends ArgumentFragment {
 
     private static final String TAG = "SimpleFragment";
 
@@ -36,9 +37,14 @@ public class SimpleFragment extends ArgumentFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.d(TAG,"String " + name);
-        Log.d(TAG,"Boolean " + secondBoolean);
-        Log.d(TAG,"Integer " + testInteger);
-        Log.d(TAG,"User " + testUser.getUserName());
+        TextView textView = (TextView) view.findViewById(R.id.textView);
+        textView.setText("First Fragment received arguments\n\n" +
+                " String-" + name + "\n Boolean-"
+                + secondBoolean + "\n Integer-" + testInteger + "\n User-" + testUser.getUserName());
+
+        Log.d(TAG, "String " + name);
+        Log.d(TAG, "Boolean " + secondBoolean);
+        Log.d(TAG, "Integer " + testInteger);
+        Log.d(TAG, "User " + testUser.getUserName());
     }
 }

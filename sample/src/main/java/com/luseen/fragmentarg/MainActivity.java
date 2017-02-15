@@ -9,16 +9,16 @@ import com.luseen.easy_fragment_argument.ArgumentFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Argument(SimpleFragment.class)
-    private String name = "Arman";
+    @Argument(FirstFragment.class)
+    private String name = "Test name";
 
-    @Argument(SimpleFragment.class)
+    @Argument(FirstFragment.class)
     private Boolean secondBoolean = false;
 
-    @Argument(SimpleFragment.class)
+    @Argument(FirstFragment.class)
     private Integer testInteger = 556456;
 
-    @Argument(SimpleFragment.class)
+    @Argument(FirstFragment.class)
     private User testUser;
 
     @Argument(SecondFragment.class)
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         nexusPhone = new Phone("Nexus 6", 7.1f, false);
         testUser = new User("Google", 123456789, 23);
 
-        Fragment fragment = ArgumentFactory.createFragment(this, new SimpleFragment());
+        Fragment fragment = ArgumentFactory.createFragment(this, new FirstFragment());
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.container, fragment)
