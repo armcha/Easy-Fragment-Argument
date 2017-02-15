@@ -13,12 +13,6 @@ public class MainActivity extends AppCompatActivity {
     private String name = "Test name";
 
     @Argument(FirstFragment.class)
-    private Boolean secondBoolean = false;
-
-    @Argument(FirstFragment.class)
-    private Integer testInteger = 556456;
-
-    @Argument(FirstFragment.class)
     private User testUser;
 
     @Argument(SecondFragment.class)

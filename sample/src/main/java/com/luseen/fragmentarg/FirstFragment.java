@@ -20,12 +20,6 @@ public class FirstFragment extends ArgumentFragment {
     private String name;
 
     @Argument
-    private Boolean secondBoolean;
-
-    @Argument
-    private Integer testInteger;
-
-    @Argument
     private User testUser;
 
     @Override
@@ -37,14 +31,14 @@ public class FirstFragment extends ArgumentFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView textView = (TextView) view.findViewById(R.id.textView);
-        textView.setText("First Fragment received arguments\n\n" +
-                " String-" + name + "\n Boolean-"
-                + secondBoolean + "\n Integer-" + testInteger + "\n User-" + testUser.getUserName());
-
-        Log.d(TAG, "String " + name);
-        Log.d(TAG, "Boolean " + secondBoolean);
-        Log.d(TAG, "Integer " + testInteger);
-        Log.d(TAG, "User " + testUser.getUserName());
+//        TextView textView = (TextView) view.findViewById(R.id.textView);
+//        textView.setText("First Fragment received arguments\n\n" +
+//                " String-" + name + "\n Boolean-"
+//                + secondBoolean + "\n Integer-" + testInteger + "\n User-" + testUser.getUserName());
+//
+//        Log.d(TAG, "String " + name);
+//        Log.d(TAG, "Boolean " + secondBoolean);
+//        Log.d(TAG, "Integer " + testInteger);
+//        Log.d(TAG, "User " + testUser.getUserName());
     }
 }
