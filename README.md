@@ -28,7 +28,7 @@ compile 'com.github.armcha:Easy-Fragment-Argument:0.0.1'
  ```java
  @Argument
  ```
- annotation to pass arguments,and name of fragment which will receive argument
+ annotation to pass arguments,and name of fragment which will receive arguments
  ```java
  @Argument(FirstFragment.class)
  private String name = "Test name";
